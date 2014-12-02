@@ -1,0 +1,52 @@
+<script>
+
+//-------------place bet
+
+var cash = 10;
+
+while (cash > 0) {
+
+var bet = 0;
+
+while (bet < 5 || bet > 10) {
+    bet = prompt("please enter your bet between $5-$10: ");
+    bet = parseInt(bet);
+    // alert("that's outside the range idiot");
+}
+
+
+// ------------generate number
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+firstNum = getRandomInt(1,10);
+
+console.log(firstNum);
+
+secondNum = prompt("please enter your guess: ");
+console.log(secondNum)
+
+firstNum = parseInt(firstNum)
+secondNum = parseInt(secondNum)
+
+//-------------pay out
+
+if (firstNum == secondNum) {
+    alert("nice");
+    cash = cash + bet;
+    console.log(cash);
+        } else if (firstNum == secondNum+1 || firstNum == secondNum - 1) {
+    alert("off by one");
+    cash = cash;
+    console.log(cash);
+        } else {
+    alert("wrong")
+    cash = cash - bet;
+    console.log(cash);;
+        }
+}
+
+</script>
+
